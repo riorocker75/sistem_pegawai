@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-default">
 <!-- <body class=""> -->
 
   <div class="container">

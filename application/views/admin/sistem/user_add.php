@@ -34,14 +34,18 @@
 
                                  <div class="form-group">
                                     <label for="">Password</label>
-                                    <input type="text" class="form-control form-control-user" name="password" >
+                                    <input type="password" class="form-control form-control-user" name="password" >
                                      <?php echo form_error('password', '<div class="form-error">', '</div>'); ?>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Level</label>
-                                    <input type="text" class="form-control form-control-user" name="password" >
-                                     <?php echo form_error('bidang', '<div class="form-error">', '</div>'); ?>
+                                    <select class="form-control form-control-user" name="level">
+                                    <option value="">--Pilih Level--</option>
+                                    <option value="admin">Admin</option>
+                                    <!-- <option value="sekretaris">Sekretaris</option> -->
+                                
+                                    </select>
                                 </div>
                                  
 
