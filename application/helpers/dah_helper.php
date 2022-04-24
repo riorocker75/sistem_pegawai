@@ -20,7 +20,7 @@ function show_alert(){
 		}else if($alert == "post-saved"){
 			echo "<div class='text-center alert alert-success alert-dah'>Post Berhasil Di Simpan.<span class='glyphicon glyphicon-remove pull-right btn-hide-alert'></span></div>";
 		}else if($alert == "post-delete"){
-			echo "<div class='text-center alert alert-success alert-dah'>Surat Berhasil Di Hapus Permanen.<span class='glyphicon glyphicon-remove pull-right btn-hide-alert'></span></div>";
+			echo "<div class='text-center alert alert-success alert-dah'>Data Berhasil Di Hapus Permanen.<span class='glyphicon glyphicon-remove pull-right btn-hide-alert'></span></div>";
 		}else if($alert == "post-trash"){
 			echo "<div class='alert alert-success alert-dah'>Post Berhasil Di Pindahkan Ke Tong Sampah.<span class='glyphicon glyphicon-remove pull-right btn-hide-alert'></span></div>";
 		}else if($alert == "menu-saved"){
@@ -49,7 +49,7 @@ function show_alert(){
 			echo "<div class='text-center alert alert-danger alert-dah'>Login gagal !<br/>periksa username & password kamu.<span class='glyphicon glyphicon-remove pull-right btn-hide-alert'></span></div>";
 		}	
 		else if($alert == "terkirim"){
-			echo "<div class='text-center alert alert-success alert-dah'>Permohonan Surat Anda  Berhasil Diajukan Ke Sekretaris Desa, Mohon Bersabar Untuk Menunggu Status Suratnya<span class='glyphicon glyphicon-remove pull-right btn-hide-alert'></span></div>";
+			echo "<div class='text-center alert alert-success alert-dah'>Permohonan Data Anda  Berhasil Diajukan Ke Sekretaris Desa, Mohon Bersabar Untuk Menunggu Status Datanya<span class='glyphicon glyphicon-remove pull-right btn-hide-alert'></span></div>";
 		}	
 			else if($alert == "tambah"){
 			echo "<div class='text-center alert alert-success alert-dah'>Berhasil ditambahkan<span class='glyphicon glyphicon-remove pull-right btn-hide-alert'></span></div>";
