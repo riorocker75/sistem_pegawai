@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2022 at 07:22 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Waktu pembuatan: 25 Apr 2022 pada 16.21
+-- Versi server: 10.4.13-MariaDB
+-- Versi PHP: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dah_options`
+-- Struktur dari tabel `dah_options`
 --
 
 CREATE TABLE `dah_options` (
@@ -34,7 +34,7 @@ CREATE TABLE `dah_options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `dah_options`
+-- Dumping data untuk tabel `dah_options`
 --
 
 INSERT INTO `dah_options` (`option_id`, `option_name`, `option_value`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `dah_options` (`option_id`, `option_name`, `option_value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mitra`
+-- Struktur dari tabel `mitra`
 --
 
 CREATE TABLE `mitra` (
@@ -54,20 +54,21 @@ CREATE TABLE `mitra` (
   `alamat` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `no_hp` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` varchar(100) NOT NULL,
+  `tanggal` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mitra`
+-- Dumping data untuk tabel `mitra`
 --
 
-INSERT INTO `mitra` (`id`, `nama`, `pemilik`, `alamat`, `email`, `no_hp`, `status`) VALUES
-(1, 'Jne Brahrangs', 'Poi Acui', 'binjai selatan', 'po@gmail.com', '997882772', '');
+INSERT INTO `mitra` (`id`, `nama`, `pemilik`, `alamat`, `email`, `no_hp`, `status`, `tanggal`) VALUES
+(1, 'Jne Brahrangs', 'Poi Acui', 'binjai selatan', 'po@gmail.com', '997882772', '', '2022-25-04');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pegawai`
+-- Struktur dari tabel `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -85,27 +86,28 @@ CREATE TABLE `pegawai` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perusahaan`
+-- Struktur dari tabel `perusahaan`
 --
 
 CREATE TABLE `perusahaan` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `alamat` varchar(100) NOT NULL,
-  `bidang` varchar(100) NOT NULL
+  `bidang` varchar(100) NOT NULL,
+  `tanggal` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `perusahaan`
+-- Dumping data untuk tabel `perusahaan`
 --
 
-INSERT INTO `perusahaan` (`id`, `nama`, `alamat`, `bidang`) VALUES
-(1, 'Jne Kota', 'jdahhah', 'ahhsdhhashd');
+INSERT INTO `perusahaan` (`id`, `nama`, `alamat`, `bidang`, `tanggal`) VALUES
+(1, 'Jne Kota', 'jdahhah', 'ahhsdhhashd', '2022-04-25');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -119,79 +121,80 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`user_id`, `user_login`, `user_name`, `user_pass`, `user_lvl`, `user_email`, `user_status`) VALUES
-(1, 'admin', 'Shanaz', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'shanaz@gmail.com', '1');
+(1, 'admin', 'Shanaz', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'shanaz@gmail.com', '1'),
+(2, 'root', 'sumantri', '63a9f0ea7bb98050796b649e85481845', 'admin', '', '1');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `dah_options`
+-- Indeks untuk tabel `dah_options`
 --
 ALTER TABLE `dah_options`
   ADD PRIMARY KEY (`option_id`);
 
 --
--- Indexes for table `mitra`
+-- Indeks untuk tabel `mitra`
 --
 ALTER TABLE `mitra`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pegawai`
+-- Indeks untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `perusahaan`
+-- Indeks untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `dah_options`
+-- AUTO_INCREMENT untuk tabel `dah_options`
 --
 ALTER TABLE `dah_options`
   MODIFY `option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `mitra`
+-- AUTO_INCREMENT untuk tabel `mitra`
 --
 ALTER TABLE `mitra`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `pegawai`
+-- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `perusahaan`
+-- AUTO_INCREMENT untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
