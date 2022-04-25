@@ -61,8 +61,8 @@
 
                     <td style="text-align: center;">
                       <?php if ($this->session->userdata('level') == "admin") { ?>
-                        <a href="<?php echo base_url() . 'admin/user_edit/'.$dt->id ?>"> <i class="fas fa-pen-alt    "></i></a>
-                        <a href="<?php echo base_url() . 'admin/user_delete/' . $dt->id ?>" onclick="return confirm('Apa Anda Yakin Hapus Data Ini?')"> <i class="fas fa-trash-alt    "></i></a>
+                        <a href="<?php echo base_url() . 'admin/user_edit/'.$dt->user_id ?>"> <i class="fas fa-pen-alt    "></i></a>
+                        <a href="<?php echo base_url() . 'admin/user_delete/' . $dt->user_id ?>" onclick="return confirm('Apa Anda Yakin Hapus Data Ini?')"> <i class="fas fa-trash-alt    "></i></a>
                       <?php } else {
                       } ?>
                     </td>

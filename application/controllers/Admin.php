@@ -144,6 +144,135 @@ class Admin extends CI_Controller {
 	}
 
 	
+	// start user
+	function user(){
+
+			$data['data']=$this->m_dah->edit_data($where,'user')->result();
+			
+			$this->load->view('admin/v_header');
+			$this->load->view('admin/sistem/user_data',$data);
+			$this->load->view('admin/v_footer');
+	}
+
+		function user_add(){
+
+			$this->load->view('admin/v_header');
+			$this->load->view('admin/sistem/user_add');
+			$this->load->view('admin/v_footer');
+	}
+	function user_act(){
+	 	$this->load->database();
+
+		$this->form_validation->set_rules('nama','Data harus terisi','required');
+		$this->form_validation->set_rules('username','Data harus terisi','required');
+		$this->form_validation->set_rules('password','Data harus terisi','required');
+
+
+		if($this->form_validation->run() != true){
+			 redirect(base_url().'admin/user_add');
+		}else{
+		
+			$data_pd=array(
+				'user_name' => $this->input->post('nama'),
+				'user_login' => $this->input->post('username'),
+				'user_pass' => md5($this->input->post('password')),
+				'user_status' =>1,
+
+				'user_lvl' => $this->input->post('level'),
+
+			);
+			$this->m_dah->insert_data($data_pd,'user');
+			$id_terakhir = $this->db->insert_id();
+
+			redirect(base_url().'admin/user/?alert=add');
+
+		}
+
+ }
+
+
+ 	function user_view($id){
+			$this->load->database();
+			$where=array(
+				'user_id' =>	$id
+			);
+			$data['data']=$this->m_dah->edit_data($where,'user')->result();
+			
+			$this->load->view('admin/v_header');
+			$this->load->view('admin/sistem/user_view',$data);
+			$this->load->view('admin/v_footer');
+
+		}
+
+		function user_edit($id){
+			$this->load->database();
+			$where=array(
+				'user_id' =>	$id
+			);
+			$data['data']=$this->m_dah->edit_data($where,'user')->result();
+			
+			$this->load->view('admin/v_header');
+			$this->load->view('admin/sistem/user_edit',$data);
+			$this->load->view('admin/v_footer');
+
+		}
+
+        function user_update(){
+			$this->load->database();
+         		$this->form_validation->set_rules('nama','Data harus terisi','required');
+                $this->form_validation->set_rules('username','Data harus terisi','required');
+                $this->form_validation->set_rules('password','Data harus terisi','required');
+
+
+			$id = $this->input->post('id');
+			$where=array(
+				'user_id' =>$id
+			);
+
+            $password=$this->input->post('password');
+
+			if($this->form_validation->run() != true){
+				redirect(base_url().'admin/user_add');
+			}else{
+
+                if($password != ""){
+                    $data_pd=array(
+                        'user_name' => $this->input->post('nama'),
+                        'user_login' => $this->input->post('username'),
+                        'user_pass' => md5($this->input->post('password')),
+                        'user_lvl' => $this->input->post('level'),
+                    );
+				    $this->m_dah->update_data($where,$data_pd,'user');
+                }else{
+                     $data_pd=array(
+                        'user_name' => $this->input->post('nama'),
+                        'user_login' => $this->input->post('username'),
+                        'user_lvl' => $this->input->post('level'),
+                    );
+				    $this->m_dah->update_data($where,$data_pd,'user');    
+                }
+
+				redirect(base_url().'admin/user/?alert=update');
+
+			}
+			
+		}
+
+         function user_delete($id){
+			$this->load->database();
+			if($id == ""){
+				redirect('base_url()');
+			}else{
+				$where = array(
+					'user_id' => $id
+					);
+
+				$this->m_dah->delete_data($where,'user');
+
+				redirect('admin/user/?alert=post-delete');
+			}
+		}
+
 	// end user
 
 	
@@ -482,6 +611,7 @@ class Admin extends CI_Controller {
 				'alamat' => $this->input->post('alamat'),
 				'email' => $this->input->post('email'),
 				'no_hp' => $this->input->post('no_hp'),
+				'tanggal' => date('Y-m-d'),
 
 			);
 			$this->m_dah->insert_data($data_pd,'mitra');
@@ -609,6 +739,8 @@ class Admin extends CI_Controller {
 				'nama' => $this->input->post('nama'),
 				'bidang' => $this->input->post('bidang'),
 				'alamat' => $this->input->post('alamat'),
+				'tanggal' => date('Y-m-d'),
+
 			);
 			$this->m_dah->insert_data($data_pd,'perusahaan');
 			$id_terakhir = $this->db->insert_id();
@@ -704,11 +836,17 @@ class Admin extends CI_Controller {
 |----------------------------------
 */
 
-		function surat_masuk_cetak(){
+		function pegawai_cetak(){
 			$this->load->database();
-			$data['data']=$this->m_dah->get_year('surat_masuk','tgl_masuk')->result();
+			$data['data']=$this->m_dah->get_year('pegawai','tanggal')->result();
+			$this->load->view('admin/cetak/cetak_pegawai',$data);
 
-			$this->load->view('admin/cetak/cetak_surat_masuk',$data);
+		}
+
+		function mitra_cetak(){
+			$this->load->database();
+			$data['data']=$this->m_dah->get_year('mitra','tanggal')->result();
+			$this->load->view('admin/cetak/cetak_mitra',$data);
 
 		}
 
