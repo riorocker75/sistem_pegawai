@@ -20,7 +20,12 @@
   <link href="<?php echo base_url(); ?>assets_f/css/custom.css" rel="stylesheet">
 
 </head>
-
+<style>
+      .bg-gradient-default{
+        background-image:url('<?php echo base_url(); ?>assets_f/img/indah_logo.png')!important;
+       
+      }
+  </style>
 <body class="bg-gradient-default">
 <!-- <body class=""> -->
 

@@ -42,7 +42,7 @@
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         
         <div class="d-block  sidebar-brand-text mx-3" >
-         <i class="fa fa-envelope"></i> 
+         <img src="<?php echo base_url(); ?>assets_f/img/logo.png" style="width:160px;height:80px">
           <!-- <p style="font-size:10px"><?php echo $this->m_dah->status_login($this->session->userdata('level')) ?> </p> -->
           
         </div>
@@ -81,11 +81,11 @@
           <span>Mitra Kerja (Agen)</span></a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url().'admin/perusahaan/'.$this->session->userdata('penduduk_id');?>">
           <i class="fa fa-flag" aria-hidden="true"></i>
           <span>Profil Perusahaan</span></a>
-      </li>
+      </li> -->
 
 
 
